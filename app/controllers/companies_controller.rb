@@ -32,6 +32,15 @@ class CompaniesController < ApplicationController
     end
   end  
 
+  def destroy
+    @company.destroy
+    flash[:success] = 'Company successfully deleted.'
+  rescue ActiveRecord::DeleteRestrictionError => e
+    flash[:error] = "#{e}"
+  ensure 
+    redirect_to companies_path
+  end
+
   private
 
   def company_params
@@ -48,6 +57,7 @@ class CompaniesController < ApplicationController
 
   def set_company
     @company = Company.find(params[:id])
+  rescue ActiveRecord::RecordNotFound => e
+    redirect_to companies_path, notice: "#{e}"
   end
-  
 end

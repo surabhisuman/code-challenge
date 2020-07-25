@@ -31,3 +31,7 @@
 
 en:
   hello: "Hello world"
+  deletion_confirmation: "Are you sure you want to delete? This company will be permanently deleted."
+  error:
+    email: "Invalid! Allowed domains are %{domains}"
+    zip_code: "has to be a valid 5 digit US zip code."
