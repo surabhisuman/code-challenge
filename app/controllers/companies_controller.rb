@@ -36,7 +36,7 @@ class CompaniesController < ApplicationController
     @company.destroy
     flash[:success] = 'Company successfully deleted.'
   rescue ActiveRecord::DeleteRestrictionError => e
-    flash[:error] = "#{e}"
+    flash[:error] = "#{e.message}"
   ensure 
     redirect_to companies_path
   end
