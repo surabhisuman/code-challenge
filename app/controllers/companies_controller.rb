@@ -58,6 +58,6 @@ class CompaniesController < ApplicationController
   def set_company
     @company = Company.find(params[:id])
   rescue ActiveRecord::RecordNotFound => e
-    redirect_to companies_path, notice: "#{e}"
+    redirect_to companies_path, notice: "#{e.message}"
   end
 end

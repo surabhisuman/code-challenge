@@ -1,5 +1,5 @@
 class EmailUtility
   def self.get_domain(email)
-    email.split('@').last
+    email.to_s.downcase.split('@').last
   end
 end
